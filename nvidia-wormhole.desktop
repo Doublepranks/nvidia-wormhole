@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Nvidia Wormhole
+Comment=GPU Fan Curve Control
+Exec=nvidia-wormhole
+Icon=com.github.doublepranks.nvidia-wormhole
+Terminal=false
+Categories=System;Utility;
+Keywords=nvidia;gpu;fan;temperature;
+StartupWMClass=nvidia-wormhole

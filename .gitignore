@@ -1,0 +1,24 @@
+# Build artifacts
+/target/
+/build-dir/
+/.flatpak-builder/
+
+# Generated files
+cargo-sources.json
+flatpak-cargo-generator.py
+
+# Test outputs
+test_result.txt
+test_result_distrobox.txt
+
+# IDE/Editor
+*.code-workspace
+.vscode/
+.idea/
+
+# Agent/Dev tools
+.agent/
+
+# OS
+.DS_Store
+Thumbs.db

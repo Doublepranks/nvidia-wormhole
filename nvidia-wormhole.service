@@ -1,0 +1,14 @@
+[Unit]
+Description=Nvidia Wormhole Fan Control Daemon
+After=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=%h/.local/bin/nvidia-wormhole --daemon
+Restart=on-failure
+RestartSec=5
+Environment="DISPLAY=:0"
+Environment="RUST_LOG=info"
+
+[Install]
+WantedBy=default.target

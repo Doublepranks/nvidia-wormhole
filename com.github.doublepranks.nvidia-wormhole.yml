@@ -1,0 +1,48 @@
+app-id: com.github.doublepranks.nvidia-wormhole
+runtime: org.freedesktop.Platform
+runtime-version: '24.08'
+sdk: org.freedesktop.Sdk
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.rust-stable
+
+command: nvidia-wormhole
+
+finish-args:
+  # Display - Required for GUI
+  - --share=ipc
+  - --socket=fallback-x11
+  - --socket=wayland
+  
+  # Access host for nvidia-settings/nvidia-smi via flatpak-spawn
+  - --talk-name=org.freedesktop.Flatpak
+  
+  # GPU access - Required for reading GPU information
+  - --device=all
+  
+  # DBus for PolicyKit (pkexec dialogs)
+  - --talk-name=org.freedesktop.PolicyKit1
+  
+  # Filesystem access for config persistence
+  - --filesystem=xdg-config/nvidia-wormhole:create
+  - --filesystem=xdg-config/autostart:create
+
+build-options:
+  append-path: /usr/lib/sdk/rust-stable/bin
+  env:
+    CARGO_HOME: /run/build/nvidia-wormhole/cargo
+    RUST_BACKTRACE: "1"
+
+modules:
+  - name: nvidia-wormhole
+    buildsystem: simple
+    build-commands:
+      - cargo --offline fetch --manifest-path Cargo.toml --verbose
+      - cargo --offline build --release --verbose
+      - install -Dm755 target/release/nvidia-wormhole /app/bin/nvidia-wormhole
+      - install -Dm644 assets/icon.png /app/share/icons/hicolor/256x256/apps/com.github.doublepranks.nvidia-wormhole.png
+      - install -Dm644 nvidia-wormhole.desktop /app/share/applications/com.github.doublepranks.nvidia-wormhole.desktop
+    sources:
+      - type: dir
+        path: .
+      # Cargo sources will be generated via flatpak-cargo-generator
+      - cargo-sources.json
