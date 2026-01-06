@@ -4,9 +4,15 @@
 
 <div align="center">
 
-[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg?style=for-the-badge&logo=paypal)](https://www.paypal.com/donate/?hosted_button_id=PWCZCAATEGK3Q)
-[![GitHub](https://img.shields.io/badge/GitHub-Repo-181717.svg?style=for-the-badge&logo=github)](https://github.com/Doublepranks/nvidia-wormhole)
-[![Twitter](https://img.shields.io/badge/Twitter-Follow-1DA1F2.svg?style=for-the-badge&logo=twitter)](https://x.com/sampantojapa)
+<a href="https://www.paypal.com/donate/?hosted_button_id=PWCZCAATEGK3Q" target="_blank">
+  <img src="https://img.shields.io/badge/Donate-PayPal-green.svg?style=for-the-badge&logo=paypal" alt="Donate">
+</a>
+<a href="https://github.com/Doublepranks/nvidia-wormhole" target="_blank">
+  <img src="https://img.shields.io/badge/GitHub-Repo-181717.svg?style=for-the-badge&logo=github" alt="GitHub">
+</a>
+<a href="https://x.com/sampantojapa" target="_blank">
+  <img src="https://img.shields.io/badge/Twitter-Follow-1DA1F2.svg?style=for-the-badge&logo=twitter" alt="Twitter">
+</a>
 
 > **Bend space-time... or at least your GPU fan curves.**
 
