@@ -24,29 +24,52 @@ If you want a lightweight, modern, and persistent fan controller that respects y
 ## 🛠️ Installation
 
 ### Prerequisites
-You need the NVIDIA proprietary drivers installed. We rely on:
+You need the NVIDIA proprietary drivers installed on your **host system**. We rely on:
 - `nvidia-settings` (for fan control)
 - `nvidia-smi` (for robust telemetry)
 - `pkexec` (PolicyKit, usually pre-installed on most distros)
 
-### Building from Source
+### Method 1: Flatpak (Recommended)
+
+The Flatpak version works seamlessly on Wayland and properly integrates with your desktop.
 
 ```bash
-# Clone the repository
+# Install dependencies
+flatpak install flathub org.freedesktop.Platform//24.08
+flatpak install flathub org.freedesktop.Sdk//24.08
+flatpak install flathub org.freedesktop.Sdk.Extension.rust-stable//24.08
+
+# Clone and build
 git clone https://github.com/Doublepranks/nvidia-wormhole.git
 cd nvidia-wormhole
 
-# Build with Cargo
-cargo build --release
+# Generate cargo sources (requires Python)
+pip install --user tomlkit aiohttp
+wget https://raw.githubusercontent.com/flatpak/flatpak-builder-tools/master/cargo/flatpak-cargo-generator.py
+python3 flatpak-cargo-generator.py Cargo.lock -o cargo-sources.json
 
-# Run it
+# Build and install
+flatpak-builder --user --install --force-clean build-dir com.github.doublepranks.nvidia-wormhole.yml
+
+# Run
+flatpak run com.github.doublepranks.nvidia-wormhole
+```
+
+### Method 2: Native Cargo Build
+
+If you prefer a native build without Flatpak:
+
+```bash
+git clone https://github.com/Doublepranks/nvidia-wormhole.git
+cd nvidia-wormhole
+cargo build --release
 ./target/release/nvidia-wormhole
 ```
 
 ### Post-Install (The "Set and Forget" part)
 
 Inside the app, just check the **"Start daemon on login"** box. That's it.
-The app will generate a Systemd user service for you.
+The app will create an autostart entry to run the daemon on login.
 
 ## 📦 Dependencies
 
