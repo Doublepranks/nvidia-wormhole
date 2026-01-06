@@ -1,7 +1,16 @@
 # Nvidia Wormhole 🌌
+
+![Nvidia Wormhole Banner](assets/banner.png)
+
+<div align="center">
+
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg?style=for-the-badge&logo=paypal)](https://www.paypal.com/donate/?hosted_button_id=PWCZCAATEGK3Q)
+[![GitHub](https://img.shields.io/badge/GitHub-Repo-181717.svg?style=for-the-badge&logo=github)](https://github.com/Doublepranks/nvidia-wormhole)
+[![Twitter](https://img.shields.io/badge/Twitter-Follow-1DA1F2.svg?style=for-the-badge&logo=twitter)](https://x.com/sampantojapa)
+
 > **Bend space-time... or at least your GPU fan curves.**
 
-![Nvidia Wormhole Icon](assets/icon.png)
+</div>
 
 ## 🚀 Why this exists?
 
